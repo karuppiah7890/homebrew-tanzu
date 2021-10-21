@@ -8,10 +8,10 @@ class TanzuCommunityEdition < Formula
   head "https://github.com/vmware-tanzu/community-edition.git"
 
   if OS.mac?
-    url "https://github.com/vmware-tanzu/community-edition/releases/download/#{version}/tce-darwin-amd64-#{version}.tar.gz"
+    url "https://github.com/vmware-tanzu/community-edition/releases/download/#{version}-1/tce-darwin-amd64-#{version}.tar.gz"
     sha256 "ae973e1f94859e930483718a3bffeadbda3d51f546fef07f57b03b9d8b2756a9"
   elsif OS.linux?
-    url "https://github.com/vmware-tanzu/community-edition/releases/download/#{version}/tce-linux-amd64-#{version}.tar.gz"
+    url "https://github.com/vmware-tanzu/community-edition/releases/download/#{version}-1/tce-linux-amd64-#{version}.tar.gz"
     sha256 "9558eb0f364c841dd293aacba1c28747cd17f773ad259c0853d1c25c104ad22e"
   end
 
