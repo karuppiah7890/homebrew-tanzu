@@ -21,7 +21,7 @@ shellenv=$("${HOMEBREW_DIR}"/bin/brew shellenv)
 
 eval "${shellenv}"
 
-brew install "${HOMEBREW_TAP_REPO_PATH}"/tanzu-community-edition.rb
+brew install --formula "${HOMEBREW_TAP_REPO_PATH}"/tanzu-community-edition.rb
 
 "$(brew --prefix)"/Cellar/tanzu-community-edition/*/libexec/configure-tce.sh
 
