@@ -4,7 +4,7 @@
 class TanzuCommunityEdition < Formula
   desc "Tanzu Community Edition"
   homepage "https://github.com/vmware-tanzu/community-edition"
-  version "v0.9.1"
+  version "v0.51.0"
   head "https://github.com/vmware-tanzu/community-edition.git"
 
   if OS.mac?
