@@ -1,0 +1,25 @@
+name: E2E Test - TCE Homebrew Formula
+
+on:
+  pull_request:
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "tanzu-community-edition.rb"
+      - ".github/workflows/check-tce-homebrew-formula-pr.yaml"
+
+jobs:
+  e2e-chocolatey-package-test:
+    name: E2E Test - TCE Homebrew Formula
+    runs-on: macos-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Run E2E Tests
+        shell: bash
+        run: |
+          ./test/check-homebrew-formula.sh
