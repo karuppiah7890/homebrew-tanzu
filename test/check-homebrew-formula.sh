@@ -58,6 +58,10 @@ tanzu login version
 
 "${tce_installation_dir[0]}"/libexec/uninstall.sh
 
+set +o xtrace
+source ~/.bash_profile
+set -o xtrace
+
 if [[ -n "$(command -v tanzu)" ]]; then
     echo "tanzu command still exists!"
     exit 1
