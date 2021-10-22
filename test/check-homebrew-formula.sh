@@ -21,9 +21,18 @@ shellenv=$("${HOMEBREW_DIR}"/bin/brew shellenv)
 
 eval "${shellenv}"
 
+brew update --force --quiet
+
 brew install --formula "${HOMEBREW_TAP_REPO_PATH}"/tanzu-community-edition.rb
 
-"$(brew --prefix)"/Cellar/tanzu-community-edition/*/libexec/configure-tce.sh
+tce_installation_dir=("${HOMEBREW_DIR}"/Cellar/tanzu-community-edition/*)
+
+if [ ${#tce_installation_dir[@]} != 1 ]; then
+    echo "TCE was not installed!"
+    exit 1
+fi
+
+"${tce_installation_dir[0]}"/libexec/configure-tce.sh
 
 tanzu version
 
@@ -47,4 +56,9 @@ tanzu builder version
 
 tanzu login version
 
-"$(brew --prefix)"/Cellar/tanzu-community-edition/*/libexec/uninstall.sh
+"${tce_installation_dir[0]}"/libexec/uninstall.sh
+
+if [[ -n "$(command -v tanzu)" ]]; then
+    echo "tanzu command still exists!"
+    exit 1
+fi
